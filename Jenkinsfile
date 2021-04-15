@@ -36,14 +36,14 @@ pipeline {
         }
 
         stage('Deliver') {
-            steps {
+            
                     if (env.BRANCH_NAME == 'main'){
                         echo 'starting the bat file'
                     } else if (env.BRANCH_NAME == 'feature-test'){ 
                         echo 'merging the feature-test branch with main branch'
                     }
                     //This environment block defines two variables which will be used later in the 'Deliver' stage.
-            }     
+               
                     
         }
         
