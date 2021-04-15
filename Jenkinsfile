@@ -6,6 +6,7 @@ pipeline {
         stage('Build') {
             
             steps {
+                echo env.BRANCH_NAME
                 //This sh step runs the Python command to compile your application and
                 //its calc library into byte code files, which are placed into the sources workspace directory
                 bat 'python -m py_compile sources/add2vals.py sources/calc.py'
@@ -36,7 +37,8 @@ pipeline {
         }
 
         stage('Deliver for development') {
-            echo env.BRANCH_NAME
+
+ 
             when {
                 branch 'feature-test' 
             }
