@@ -42,6 +42,9 @@ pipeline {
             steps {
 
                         echo 'merging the feature-test branch with main branch'
+                        bat 'git checkout main'
+                        bat 'git pull'
+                        bat 'git merge feature-test'
 
                     //This environment block defines two variables which will be used later in the 'Deliver' stage.
                
