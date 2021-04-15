@@ -45,9 +45,7 @@ pipeline {
             steps {
                         
                         echo 'merging the feature-test branch with main branch'
-                        bat 'git checkout main'
-                        bat 'git pull'
-                        bat 'git merge feature-test'
+                        checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [[$class: 'PreBuildMerge', options: [mergeRemote: 'https://github.com/padhibibaswan/demo-repo2.git', mergeTarget: 'feature-test']]], userRemoteConfigs: [[credentialsId: 'github', url: 'https://github.com/padhibibaswan/demo-repo2.git']]])
 
                     //This environment block defines two variables which will be used later in the 'Deliver' stage.
                
