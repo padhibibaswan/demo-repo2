@@ -8,6 +8,7 @@ import calc
 
 argnumbers = len(sys.argv) - 1
 
+print('new line added')
 if argnumbers == 2 :
     print("")
     print("The result is " + str(calc.add2(str(sys.argv[1]), str(sys.argv[2]))))
