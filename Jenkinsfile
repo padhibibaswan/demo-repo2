@@ -36,11 +36,12 @@ pipeline {
         }
 
         stage('Deliver for development') {
+            echo env.BRANCH_NAME
             when {
                 branch 'feature-test' 
             }
             steps {
-
+                        
                         echo 'merging the feature-test branch with main branch'
                         bat 'git checkout main'
                         bat 'git pull'
